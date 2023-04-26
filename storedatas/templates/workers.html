@@ -1,0 +1,35 @@
+
+{% extends 'index.html' %}
+
+{% block content %}
+
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th >First Name</th>
+                    <th>Last Name</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for worker in emploeyees %}
+                    {% if loop.index % 2 == 0 %}
+                    <tr>
+                        <td>{{ worker.firstname }}</td>
+                        <td>{{ worker.lastname }}</td>
+                        <td>{{ worker.date }}</td>
+                    </tr>
+                    {% endif %}
+                    {% if loop.index % 2 == 1 %}
+                    <tr class="active-row">
+                        <td>{{ worker.firstname }}</td>
+                        <td>{{ worker.lastname }}</td>
+                        <td>{{ worker.date }}</td>
+                    </tr>
+                    {% endif %}
+                {% endfor %}
+            </tbody>
+        </table>
+
+
+{% endblock content %}
